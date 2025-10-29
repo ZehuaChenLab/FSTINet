@@ -23,7 +23,7 @@ The main contributions of FSTINet, as detailed in *FSTINet___Yuzhuo_Feng___2025 
 
 ## Method Architecture
 ### 1. Overall Pipeline
-FSTINet adopts an encoder-decoder structure with four key components, as illustrated in the paper’s Fig. 2:
+FSTINet adopts an encoder-decoder structure with four key components
 - **Encoder**: A ResNet34-based backbone (pretrained on ImageNet-1K) extracts multi-scale Bird’s Eye View (BEV) features from LiDAR point cloud sequences. 3D convolutional layers are inserted between ResBlocks to explicitly refine temporal dependencies .
 - **HTSIM**: Embedded in skip connections between the encoder and decoder, HTSIM refines skip-connection features by suppressing temporal redundancy and enhancing cross-scale spatio-temporal interaction .
 - **FSFM**: Positioned at the network bottleneck, FSFM fuses frequency-domain cues (from wavelet decomposition) with spatial features to generate compact, discriminative representations .
@@ -31,12 +31,12 @@ FSTINet adopts an encoder-decoder structure with four key components, as illustr
 
 ### 2. Core Modules
 #### (a) HTSIM: Hierarchical Temporal-Spatial Integrated Module
-HTSIM’s workflow (paper Fig. 3) includes two key steps:
+HTSIM’s workflow includes two key steps:
 - **Temporal Max-Pooling (TMP)**: Aggregates features along the temporal axis to suppress redundancy, preserving salient motion cues while filtering short-term fluctuations .
 - **Hierarchical Interaction Learning Mechanism (HILM)**: Divides features into channel groups, applies unified transformations (SS2D for long-range context, WTConv for frequency-aware filtering, ECA for channel attention), and establishes bidirectional cross-scale correlations via group-wise matrix multiplication. This selectively enhances stable spatio-temporal patterns .
 
 #### (b) FSFM: Frequency-Spatial Fusion Module
-FSFM’s core is **Wavelet-Based Multi-Frequency Fusion (WMFF)**, as shown in the paper’s Fig. 4:
+FSFM’s core is **Wavelet-Based Multi-Frequency Fusion (WMFF)**:
 - **Wavelet Decomposition**: Uses Haar wavelet basis to split input features into low-frequency (LL, global contours/background) and high-frequency (LH/HL/HH, edges/fast motion) components .
 - **Differentiated Fusion**: Low-frequency components are concatenated to preserve global semantics; high-frequency components are fused element-wise to emphasize transient signals and suppress noise. The fused features are further refined with ECA and residual connections.
 
@@ -89,8 +89,4 @@ Ablation experiments confirm the effectiveness of each core module (paper Table 
 | **FSTINet**     | √ | √ | 0.8359 | 75.9 |
 
 *The combination of HTSIM and FSFM achieves the best performance, validating their synergy in fusing spatio-temporal and frequency features .*
-
-### 3. Qualitative Analysis
-As shown in the paper’s Fig. 5, FSTINet generates more accurate motion trajectories (represented by arrows) for fast-moving objects compared to MotionNet. It also improves cell classification (color-coded: gray = background, pink = vehicle, black = pedestrian, yellow = bike, red = others) by better distinguishing small or fast-moving targets .
-
 
