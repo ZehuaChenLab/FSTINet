@@ -3,17 +3,6 @@ This repository is the official implementation of **FSTINet**, a novel framework
 *FSTINet: Spatial-Temporal Integrated Network for Class-Agnostic Motion Prediction with Frequency-Spatial Fusion*  
 *(Code will be released soon)*
 
-
-
-
-## Overview
-Accurate motion prediction of traffic participants is a critical prerequisite for safe and efficient autonomous driving. Existing methods often face two core limitations:
-1. **Insufficient spatio-temporal dependency modeling**: Conventional strategies (e.g., 3D max-pooling, global aggregation) easily lose long-term temporal dynamics and fine-grained local variations, leading to poor adaptability in high-speed scenarios.
-2. **Limited dynamic feature capture**: Effective prediction requires balancing low-frequency global context and high-frequency local details, but existing approaches struggle to fuse these two types of features, often confusing subtle motion changes with background noise.
-
-FSTINet resolves these issues by introducing two core modules that unify spatial, temporal, and frequency-domain information, achieving robust performance in complex dynamic environments.
-
-
 ## Key Contributions
 The main contributions of FSTINet, as detailed in *FSTINet___Yuzhuo_Feng___2025 (1).pdf*, are:
 1. **Hierarchical Temporal-Spatial Integrated Module (HTSIM)**: Integrates temporal max-pooling with a hierarchical interaction learning mechanism to establish bidirectional cross-scale correlations. This design captures both long-term temporal dependencies and fine-grained dynamic changes in traffic scenarios.
