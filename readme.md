@@ -78,4 +78,4 @@ Ablation experiments confirm the effectiveness of each core module (paper Table 
 | **FSTINet**     | √ | √ | 0.8359 | 75.9 |
 
 *The combination of HTSIM and FSFM achieves the best performance, validating their synergy in fusing spatio-temporal and frequency features .*
-
+![image](https://github.com/ZehuaChenLab/FSTINet/blob/main/imgs/fig1.png)
